@@ -23,6 +23,8 @@ def disp_news():
     tag = request.args.get('tag', type=str)
     limit = request.args.get('limit', type=int, default=5)
 
+
+    query = {}
     if tag is not None:
         query = {"tags": {"$elemMatch": {"$eq": tag} } }
     if date is not None:
