@@ -39,4 +39,4 @@ def disp_news():
 
 if __name__ == "__main__":
     
-    api.run(debug=False)
+    api.run(host='0.0.0.0')
