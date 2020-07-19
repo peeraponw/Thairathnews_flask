@@ -8,8 +8,8 @@ import json
 from datetime import datetime
 import sys
 
-api = Flask(__name__)
-api.config['JSON_AS_ASCII'] = False
+app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 
 
 URI = os.environ.get('MONGODB_URI')
@@ -17,7 +17,7 @@ client = MongoClient(URI)
 db = client['heroku_95w86hmz']
 collection = db['thairath']
 
-@api.route('/api')
+@app.route('/api')
 def disp_news():
     date = request.args.get('date', type=str)
     tag = request.args.get('tag', type=str)
@@ -39,4 +39,4 @@ def disp_news():
 
 if __name__ == "__main__":
     
-    api.run(host='0.0.0.0')
+    app.run()
